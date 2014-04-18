@@ -23,7 +23,7 @@ class PiBMP085(object):
     def probe(self):
         try:
             t = self.__bmp.readTemperature() + 273.15
-            p = self.__bmp.readPressure()
+            p = self.__bmp.readPressure()/100.0
             self.__weather = weather.Weather(t, p )
             return True
         except AttributeError:
